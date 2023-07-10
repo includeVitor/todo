@@ -9,6 +9,6 @@ defmodule TodoWeb.ItemsLive do
   end
 
   def assign_items(socket) do
-    socket |> assign(:items, %Item{})
+    socket |> assign(:item, %Item{})
   end
 end

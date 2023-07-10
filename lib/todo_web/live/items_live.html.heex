@@ -1,10 +1,5 @@
 <div>
   <h1>Todos</h1>
-  <.live_component
-    module={TodoWeb.FormComponent}
-    id="items_input"
-    text_value={nil}
-    items={@items}
-  />
+  <.live_component module={TodoWeb.FormComponent} id="item_input" text_value={nil} item={@item} />
   <.live_component module={TodoWeb.ItemsComponent} items={@items} id="items_list" />
 </div>
