@@ -1,0 +1,139 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "mix_task",
+            "name": "mix phx.server",
+            "request": "launch",
+            "projectDir": "${workspaceRoot}",
+            "task": "phx.server",
+            "taskArgs": [],
+            "presentation": {
+                "hidden": false,
+                "group": "Elixir",
+                "order": 0
+            },
+            "startApps": false,
+            "env": {
+                "MIX_ENV": "dev"
+            },
+            "excludeModules": [
+                ":*",
+                "Mix.*",
+                "ElixirLS.*",
+                "*Test"
+            ],
+            "debugAutoInterpretAllModules": false,
+            "debugInterpretModulesPatterns": [
+                "Core.*",
+                "TenantWeb.*",
+                "ShopkeeperWeb.*",
+                "Ecto.*"
+            ]
+        },
+        {
+            "type": "mix_task",
+            "name": "mix test",
+            "presentation": {
+                "hidden": false,
+                "group": "Test",
+                "order": 1
+            },
+            "request": "launch",
+            "task": "test",
+            "taskArgs": [
+                "--color",
+                "--trace"
+            ],
+            "startApps": true,
+            "projectDir": "${workspaceRoot}",
+            "requireFiles": [
+                "test/**/test_helper.exs",
+                "test/**/*_test.exs"
+            ],
+            "excludeModules": [
+                ":*"
+            ],
+            "debugAutoInterpretAllModules": false,
+            "debugInterpretModulesPatterns": [
+                "Care.*",
+                "TenantWeb.*",
+                "ShopkeeperWeb.*"
+            ]
+        },
+        {
+            "type": "mix_task",
+            "name": "mix test file --no-start",
+            "presentation": {
+                "hidden": false,
+                "group": "Test",
+                "order": 2
+            },
+            "request": "launch",
+            "task": "test",
+            "taskArgs": [
+                "--trace",
+                "--color",
+                "--no-start",
+                "${file}"
+            ],
+            "startApps": false,
+            "projectDir": "${workspaceRoot}",
+            "requireFiles": [
+                "test/**/test_helper.exs"
+            ],
+            "excludeModules": [
+                ":*",
+                "ElixirLS.*",
+                "Hex.*",
+                "Logger.*",
+                "Mix.*"
+            ],
+            "debugAutoInterpretAllModules": false,
+            "debugInterpretModulesPatterns": [
+                "Core.*",
+                "TenantWeb.*",
+                "ShopkeeperWeb.*",
+                "Ecto.*"
+            ]
+        },
+        {
+            "type": "mix_task",
+            "name": "mix test file",
+            "presentation": {
+                "hidden": false,
+                "group": "Test",
+                "order": 2
+            },
+            "request": "launch",
+            "task": "test",
+            "taskArgs": [
+                "--trace",
+                "--color",
+                "${file}"
+            ],
+            "startApps": true,
+            "projectDir": "${workspaceRoot}",
+            "requireFiles": [
+                "test/**/test_helper.exs"
+            ],
+            "excludeModules": [
+                ":*",
+                "ElixirLS.*",
+                "Hex.*",
+                "Logger.*",
+                "Mix.*"
+            ],
+            "debugAutoInterpretAllModules": false,
+            "debugInterpretModulesPatterns": [
+                "Core.*",
+                "TenantWeb.*",
+                "ShopkeeperWeb.*",
+                "Ecto.*"
+            ]
+        }
+    ]
+}

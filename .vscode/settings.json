@@ -1,0 +1,57 @@
+{
+  "cSpell.words": [
+    "Adyen",
+    "cachex",
+    "ecommerce",
+    "elco",
+    "esbuild",
+    "floki",
+    "hotwired",
+    "hreflangs",
+    "iframe",
+    "Klarna",
+    "langcode",
+    "liveperson",
+    "metatag",
+    "metatags",
+    "oban",
+    "olapic",
+    "Oofis",
+    "optimizely",
+    "perlgem",
+    "replenishable",
+    "samly",
+    "signin",
+    "skus",
+    "stylesheet",
+    "tealium"
+  ],
+  "files.associations": {
+    "*.heex": "phoenix-heex",
+    "**/apps/tenant_web/priv/iam_data/config.*": "json",
+    "**/.docker/envs/**/env-*": "dotenv"
+  },
+  "[elixir]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.trimAutoWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html"
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.workingDirectories": ["apps/tenant_web/assets"]
+}
