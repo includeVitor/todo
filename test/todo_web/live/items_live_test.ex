@@ -2,7 +2,7 @@ defmodule TodoWeb.ItemsLiveTest do
   use TodoWeb.ConnCase
   import Phoenix.LiveViewTest
 
-  @valid_item_attrs %{text: "first_item"}
+  @valid_item_attrs %{text: "first item"}
   @invalid_item_attrs %{text: nil}
 
   test "create_item", %{conn: conn} do
