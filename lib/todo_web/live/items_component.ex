@@ -23,7 +23,6 @@ defmodule TodoWeb.ItemsComponent do
     {:noreply, socket}
   end
 
-  @spec item_completed?(any) :: <<_::_*72>>
   def item_completed?(true), do: "completed"
   def item_completed?(_), do: ""
 end
