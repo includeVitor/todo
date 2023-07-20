@@ -8,9 +8,9 @@ defmodule TodoWeb.ItemsLiveTest do
   test "create_item", %{conn: conn} do
     {:ok, view, _html} = live(conn, "/")
 
-    # assert view
-    #        |> form("#item-form", item: @invalid_item_attrs)
-    #        |> render_change() =~ "can&#39;t be blank"
+    assert view
+           |> form("#item-form", item: @invalid_item_attrs)
+           |> render_change() =~ "can&#39;t be blank"
 
     view
     |> form("#item-form", item: @valid_item_attrs)
