@@ -9,7 +9,9 @@
   >
     <%= label(f, :text) %>
     <%= text_input(f, :text) %>
-    <%!-- <%= error_tag(f, :text) %> --%>
+    <.error :for={{msg, _} <- f[:text].errors}>
+      <%= msg %>
+    </.error>
     <%= submit("Add Item", phx_disable_with: "Adding...") %>
   </.form>
 </div>
