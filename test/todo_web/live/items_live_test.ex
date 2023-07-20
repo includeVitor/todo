@@ -25,9 +25,20 @@ defmodule TodoWeb.ItemsLiveTest do
     assert item.completed == false
 
     {:ok, view, _html} = live(conn, "/")
-    assert view |> element("#item_completed") |> render_click() =~ "completed"
+    assert view |> element("#item_completed-#{item.id}") |> render_click() =~ "completed"
 
     update_item = Items.get_item!(item.id)
     assert update_item.completed == true
+  end
+
+  test "delete item", %{conn: conn} do
+    {:ok, item} = Items.create_item(%{"text" => "first item"})
+    assert item.completed == false
+
+    {:ok, view, _html} = live(conn, "/")
+    assert has_element?(view, "item-#{item.id}")
+
+    view |> element("button", "Delete") |> render_click()
+    refute has_element?(view, "item-#{item.id}")
   end
 end
