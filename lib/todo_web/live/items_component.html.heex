@@ -2,8 +2,20 @@
   <ul>
     <%= for item <- @items do %>
       <li id={"item-#{item.id}"}>
-        <%= checkbox(:item, :completed, value: item.completed) %>
-        <p><%= item.text %></p>
+        <%= checkbox(:item, :completed,
+          phx_click: "toggle_item",
+          phx_value_id: item.id,
+          phx_target: @myself,
+          value: item.completed
+        ) %>
+        <p
+          class={"#{item_completed?(item)}"}
+          phx-click="toggle_item"
+          phx-value-id={item.id}
+          phx-target={@myself}
+        >
+          <%= item.text %>
+        </p>
         <button>Delete</button>
       </li>
     <% end %>
