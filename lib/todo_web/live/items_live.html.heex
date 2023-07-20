@@ -2,4 +2,16 @@
   <h1>Todos</h1>
   <.live_component module={TodoWeb.FormComponent} id="item_input" text_value={nil} item={@item} />
   <.live_component module={TodoWeb.ItemsComponent} items={@items} id="items_list" />
+  <div>
+    Show:
+    <span>
+      <.link navigate={~p"/?filter_by=all"}>All</.link>
+    </span>
+    <span>
+      <.link navigate={~p"/?filter_by=active"}>Active</.link>
+    </span>
+    <span>
+      <.link navigate={~p"/?filter_by=completed"}>Completed</.link>
+    </span>
+  </div>
 </div>
