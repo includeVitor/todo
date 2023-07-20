@@ -33,12 +33,32 @@ defmodule TodoWeb.ItemsLiveTest do
 
   test "delete item", %{conn: conn} do
     {:ok, item} = Items.create_item(%{"text" => "first item"})
-    assert item.completed == false
 
     {:ok, view, _html} = live(conn, "/")
-    assert has_element?(view, "item-#{item.id}")
+    assert has_element?(view, "#item-#{item.id}")
 
     view |> element("button", "Delete") |> render_click()
-    refute has_element?(view, "item-#{item.id}")
+    refute has_element?(view, "#item-#{item.id}")
+  end
+
+  test "filter items", %{conn: conn} do
+    {:ok, _first} = Items.create_item(%{"text" => "first item"})
+    {:ok, _second} = Items.create_item(%{"text" => "second item"})
+
+    {:ok, view, _html} = live(conn, "/")
+
+    assert view |> element("p", "first item") |> render_click() =~ "completed"
+
+    {:ok, view, _html} = live(conn, "/?filter_by=completed")
+    assert render(view) =~ "first item"
+    refute render(view) =~ "second item"
+
+    {:ok, view, _html} = live(conn, "/?filter_by=active")
+    refute render(view) =~ "first item"
+    assert render(view) =~ "second item"
+
+    {:ok, view, _html} = live(conn, "/?filter_by=all")
+    assert render(view) =~ "first item"
+    assert render(view) =~ "second item"
   end
 end
