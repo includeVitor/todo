@@ -1,11 +1,12 @@
 defmodule TodoWeb.ItemsLiveTest do
+  alias Todo.Items
   use TodoWeb.ConnCase
   import Phoenix.LiveViewTest
 
   @valid_item_attrs %{text: "first item"}
   @invalid_item_attrs %{text: nil}
 
-  test "create_item", %{conn: conn} do
+  test "create item", %{conn: conn} do
     {:ok, view, _html} = live(conn, "/")
 
     assert view
@@ -17,5 +18,16 @@ defmodule TodoWeb.ItemsLiveTest do
     |> render_submit()
 
     assert render(view) =~ "first item"
+  end
+
+  test "toggle item", %{conn: conn} do
+    {:ok, item} = Items.create_item(%{"text" => "first item"})
+    assert item.completed == false
+
+    {:ok, view, _html} = live(conn, "/")
+    assert view |> element("#item_completed") |> render_click() =~ "completed"
+
+    update_item = Items.get_item!(item.id)
+    assert update_item.completed == true
   end
 end
