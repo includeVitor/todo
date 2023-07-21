@@ -18,7 +18,7 @@ defmodule Todo.Items do
 
   """
   def list_items do
-    Repo.all(Item)
+    Repo.all(from i in Item, order_by: i.id)
   end
 
   @doc """
