@@ -1,26 +1,31 @@
-<div>
-  <ul>
-    <%= for item <- @items do %>
-      <li id={"item-#{item.id}"}>
-        <%= checkbox(:item, :completed,
-          id: "item_completed-#{item.id}",
-          phx_click: "toggle_item",
-          phx_value_id: item.id,
-          phx_target: @myself,
-          value: item.completed
-        ) %>
-        <p
-          class={"#{item_completed?(item)}"}
-          phx-click="toggle_item"
-          phx-value-id={item.id}
-          phx-target={@myself}
-        >
-          <%= item.text %>
-        </p>
-        <button phx-click="delete_item" phx-value-id={item.id} phx-target={@myself}>
-          Delete
-        </button>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<ul class="flex flex-col gap-2">
+  <li
+    :for={item <- @items}
+    id={"item-#{item.id}"}
+    class="flex gap-4 items-center px-4 border-b pb-2"
+  >
+    <%= checkbox(:item, :completed,
+      id: "item_completed-#{item.id}",
+      phx_click: "toggle_item",
+      phx_value_id: item.id,
+      phx_target: @myself,
+      value: item.completed
+    ) %>
+    <p
+      class={"#{item_completed?(item.completed)}"}
+      phx-click="toggle_item"
+      phx-value-id={item.id}
+      phx-target={@myself}
+    >
+      <%= item.text %>
+    </p>
+    <button
+      phx-click="delete_item"
+      phx-value-id={item.id}
+      phx-target={@myself}
+      class="px-4 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:border-red-300 transition-colors"
+    >
+      Delete
+    </button>
+  </li>
+</ul>
