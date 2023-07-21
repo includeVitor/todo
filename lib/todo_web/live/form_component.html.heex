@@ -1,4 +1,4 @@
-<div>
+<div class="w-full">
   <.form
     :let={f}
     for={@changeset}
@@ -6,12 +6,23 @@
     phx-target={@myself}
     phx-change="validate"
     phx-submit="create_item"
+    class="flex gap-4 items-start justify-center"
   >
-    <%= label(f, :text) %>
-    <%= text_input(f, :text) %>
-    <.error :for={{msg, _} <- f[:text].errors}>
-      <%= msg %>
-    </.error>
-    <%= submit("Add Item", phx_disable_with: "Adding...") %>
+    <div class="flex flex-col">
+      <%= text_input(f, :text,
+        placeholder: "What needs to be done?",
+        class:
+          "px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 transition-colors min-w-[300px]",
+        autocomplete: "off"
+      ) %>
+      <.error :for={{msg, _} <- f[:text].errors}>
+        <%= msg %>
+      </.error>
+    </div>
+    <%= submit("Add Item",
+      phx_disable_with: "Adding...",
+      class:
+        "px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300 transition-colors"
+    ) %>
   </.form>
 </div>
