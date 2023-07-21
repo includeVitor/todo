@@ -9,10 +9,11 @@
       phx_click: "toggle_item",
       phx_value_id: item.id,
       phx_target: @myself,
-      value: item.completed
+      value: item.completed,
+      class: "cursor-pointer"
     ) %>
     <p
-      class={"#{item_completed?(item.completed)}"}
+      class={"#{item_completed?(item.completed)} cursor-pointer w-full"}
       phx-click="toggle_item"
       phx-value-id={item.id}
       phx-target={@myself}
