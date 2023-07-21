@@ -1,12 +1,21 @@
 <div class="flex justify-end gap-2">
   Showing:
-  <span class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors">
-    <.link navigate={~p"/?filter_by=all"}>All</.link>
-  </span>
-  <span class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors">
-    <.link navigate={~p"/?filter_by=active"}>Active</.link>
-  </span>
-  <span class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors">
-    <.link navigate={~p"/?filter_by=completed"}>Completed</.link>
-  </span>
+  <.link
+    navigate={~p"/?filter_by=all"}
+    class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"
+  >
+    All
+  </.link>
+  <.link
+    navigate={~p"/?filter_by=active"}
+    class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"
+  >
+    Active
+  </.link>
+  <.link
+    navigate={~p"/?filter_by=completed"}
+    class="px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"
+  >
+    Completed
+  </.link>
 </div>
