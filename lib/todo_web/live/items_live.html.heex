@@ -1,17 +1,6 @@
-<div class="flex flex-col items-center justify-center gap-4">
-  <h1 class="text-6xl pb-4">Todos</h1>
+<section class="flex flex-col gap-4">
+  <h1 class="text-6xl pb-4 text-center">Todos</h1>
   <.live_component module={TodoWeb.FormComponent} text_value={nil} item={@item} id="item_input" />
+  <.live_component module={TodoWeb.FilterComponent} id="filter_list" />
   <.live_component module={TodoWeb.ItemsComponent} items={@items} id="items_list" />
-  <div>
-    Show:
-    <span>
-      <.link navigate={~p"/?filter_by=all"}>All</.link>
-    </span>
-    <span>
-      <.link navigate={~p"/?filter_by=active"}>Active</.link>
-    </span>
-    <span>
-      <.link navigate={~p"/?filter_by=completed"}>Completed</.link>
-    </span>
-  </div>
-</div>
+</section>
