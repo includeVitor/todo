@@ -20,12 +20,7 @@
     >
       <%= item.text %>
     </p>
-    <button
-      phx-click="delete_item"
-      phx-value-id={item.id}
-      phx-target={@myself}
-      class="px-4 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:border-red-300 transition-colors"
-    >
+    <button phx-click="delete_item" phx-value-id={item.id} phx-target={@myself} class="btn-delete">
       Delete
     </button>
   </li>

@@ -2,19 +2,19 @@
   Showing:
   <.link
     navigate={~p"/?filter_by=all"}
-    class={"#{is_filter_by_selected?(@filter_by, "all")} px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"}
+    class={[is_filter_by_selected?(@filter_by, "all"), "link"]}
   >
     All
   </.link>
   <.link
     navigate={~p"/?filter_by=active"}
-    class={"#{is_filter_by_selected?(@filter_by, "active")} px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"}
+    class={[is_filter_by_selected?(@filter_by, "active"), "link"]}
   >
     Active
   </.link>
   <.link
     navigate={~p"/?filter_by=completed"}
-    class={"#{is_filter_by_selected?(@filter_by, "completed")} px-4 border border-blue-300 rounded-full hover:bg-blue-100 focus:outline-none focus:ring focus:border-blue-300 transition-colors"}
+    class={[is_filter_by_selected?(@filter_by, "completed"), "link"]}
   >
     Completed
   </.link>
