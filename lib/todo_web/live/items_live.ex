@@ -19,19 +19,23 @@ defmodule TodoWeb.ItemsLive do
 
   @impl true
   def handle_params(params, _url, socket) do
+    [items, filter_by] = filter_items(params["filter_by"])
+
+    {:noreply, assign(socket, items: items, filter_by: filter_by)}
+  end
+
+  def filter_items(filter_by) do
     items = Items.list_items()
 
-    case params["filter_by"] do
+    case filter_by do
       "completed" ->
-        {:noreply,
-         assign(socket, items: Enum.filter(items, &(&1.completed == true)), filter_by: "completed")}
+        [Enum.filter(items, &(&1.completed == true)), "completed"]
 
       "active" ->
-        {:noreply,
-         assign(socket, items: Enum.filter(items, &(&1.completed == false)), filter_by: "active")}
+        [Enum.filter(items, &(&1.completed == false)), "active"]
 
       _ ->
-        {:noreply, assign(socket, items: items, filter_by: "all")}
+        [items, "all"]
     end
   end
 
