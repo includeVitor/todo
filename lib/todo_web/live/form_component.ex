@@ -2,7 +2,6 @@ defmodule TodoWeb.FormComponent do
   use TodoWeb, :live_component
   use Phoenix.HTML
   alias Todo.Items
-  alias Todo.Items.Item
 
   @items_topic "items"
 
@@ -28,10 +27,6 @@ defmodule TodoWeb.FormComponent do
   def save_item(socket, item_params) do
     case Items.create_item(item_params) do
       {:ok, _item} ->
-        socket =
-          assign(socket, items: Items.list_items())
-          |> assign(:changeset, Items.change_item(%Item{}))
-
         TodoWeb.Endpoint.broadcast(@items_topic, "items_updated", socket.assigns)
 
         {:noreply, socket}
