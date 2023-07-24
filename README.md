@@ -1,6 +1,6 @@
 # todo &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/includeVitor/todo/blob/main/LICENSE) ![Main CI](https://github.com/includevitor/todo/actions/workflows/main.yml/badge.svg) [![codecov](https://codecov.io/gh/includeVitor/todo/branch/main/graph/badge.svg?token=GMPH6M3X98)](https://codecov.io/gh/includeVitor/todo)
 
-https://github.com/includeVitor/todo/assets/38621315/8e2f7a28-d275-41d0-b48d-5bfa7b37bcac
+https://github.com/includeVitor/todo/assets/38621315/4b945eed-61ed-481d-b38a-ec76e4641c1c
 
 Running locally:
 - Run `mix deps.get` to install all dependencies
