@@ -13,8 +13,10 @@ defmodule TodoWeb.ItemsLive do
   end
 
   @impl true
-  def handle_info(%{event: "items_updated", payload: %{items: items}}, socket) do
-    {:noreply, assign(socket, items: items)}
+  def handle_info(%{event: "items_updated"}, socket) do
+    [items, filter_by] = filter_items(socket.assigns[:filter_by])
+
+    {:noreply, assign(socket, items: items, filter_by: filter_by)}
   end
 
   @impl true
