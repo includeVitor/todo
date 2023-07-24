@@ -10,7 +10,6 @@ defmodule TodoWeb.ItemsComponent do
     item = Items.get_item!(id)
     Items.update_item(item, %{completed: !item.completed})
 
-    socket = assign(socket, items: Items.list_items())
     TodoWeb.Endpoint.broadcast(@items_topic, "items_updated", socket.assigns)
     {:noreply, socket}
   end
@@ -20,7 +19,6 @@ defmodule TodoWeb.ItemsComponent do
     item = Items.get_item!(id)
     Items.delete_item(item)
 
-    socket = assign(socket, items: Items.list_items())
     TodoWeb.Endpoint.broadcast(@items_topic, "items_updated", socket.assigns)
     {:noreply, socket}
   end
