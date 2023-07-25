@@ -7,9 +7,14 @@ defmodule TodoWeb.ItemsLive do
 
   @impl true
   def mount(_param, _session, socket) do
-    if connected?(socket), do: TodoWeb.Endpoint.subscribe(@items_topic)
+    case connected?(socket) do
+      true ->
+        TodoWeb.Endpoint.subscribe(@items_topic)
+        {:ok, assign(socket, items: Items.list_items(), item: %Item{}, filter_by: "all")}
 
-    {:ok, assign(socket, items: Items.list_items(), filter_by: "all") |> assign_items()}
+      _ ->
+        {:ok, assign(socket, items: [], item: %Item{}, filter_by: "all")}
+    end
   end
 
   @impl true
@@ -39,9 +44,5 @@ defmodule TodoWeb.ItemsLive do
       _ ->
         [items, "all"]
     end
-  end
-
-  def assign_items(socket) do
-    socket |> assign(:item, %Item{})
   end
 end
